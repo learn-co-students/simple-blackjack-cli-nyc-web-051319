@@ -4,12 +4,7 @@ def welcome
 end
 
 def deal_card
-  variable_for_safekeeping = deal_card
-
-  variable_for_safekeeping.times do
-    puts rand(1..11)
-
-  end
+   rand(1..11)
 end
 
 def display_card_total (card_total)
@@ -25,8 +20,7 @@ end
 
 
 def get_user_input
-  gets "h"
-  # code #get_user_input here
+  gets.strip
 end
 
 
@@ -49,15 +43,16 @@ user = get_user_input
 if user == "h"
   card_total += deal_card
 
-else user == "s"
-    card_total -= deal_card
-
-card_total = get_user_input
+elsif user == "s"
+    card_total
+else
+  invalid_command
+  hit(card_total)
 end
 end
 
 def invalid_command
-  puts "Please enter vlaid command"
+  puts "Please enter valid command"
   # code invalid_command here
 end
 
@@ -67,11 +62,10 @@ end
 
 def runner
   welcome
-  initial_round
-  hit?
-  display_card_total
+  card_total = initial_round
 until card_total > 21
-end_game
-  # code runner here
+  card_total = hit? (card_total)
+    display_card_total (card_total)
 end
+end_game (card_total)
 end

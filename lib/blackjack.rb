@@ -37,22 +37,28 @@ def end_game(card_total)
 end
 
 def initial_round (deal_card)
-  # code #initial_round here
+  sum = deal_card + deal_card
+  display_card_total (sum)
+
 end
 
 def hit? (current_card_total)
-  if
+  prompt_user
+user = get_user_input
 
-    'h'
+if user == get_user_input
+  puts 
 
-  elsif 's'
+
+  elsif user == "Type 'h' to hit or 's' to stay"
+    puts 's'
 
   else
+    puts "Type 'h' to hit or 's' to stay"
 
-
-  # code hit? here
+current_card_total = get_user_input
 end
-
+end
 
 def invalid_command
   puts "Please enter vlaid command"
@@ -64,5 +70,11 @@ end
 #####################################################
 
 def runner
+  welcome
+  initial_round
+  hit?
+  display_card_total
+until card_total > 21
+end_game
   # code runner here
 end

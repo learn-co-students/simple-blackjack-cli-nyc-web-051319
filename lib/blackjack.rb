@@ -44,14 +44,17 @@ def hit?(total)
   # code hit? here
   prompt_user
   answer = get_user_input
+  until answer == "h" || answer == "s"
+    invalid_command
+    prompt_user
+    answer = get_user_input
+  end
   case answer
   when "h"
     total += deal_card
   when "s"
-  else
-    invalid_command
+    total
   end
-  total
 end
 
 def invalid_command
@@ -66,11 +69,10 @@ end
 def runner
   # code runner here
   welcome
-  round_1 = initial_round
-  total = hit?(round_1)
-  display_card_total(total)
+  total = initial_round
   until total > 21
-    total += hit?(total)
+    total = hit?(total)
+    display_card_total(total)
   end
   end_game(total)
 end

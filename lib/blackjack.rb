@@ -41,9 +41,7 @@ end
 
 def hit? (card_total)
   # code hit? here
-  prompt = prompt_user
-  user_input  = get_user_input
-  
+
   card_three = deal_card
   if user_input == "s"
     card_total

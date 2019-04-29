@@ -45,10 +45,6 @@ def invalid_command
   prompt_user
 end
 
-#####################################################
-# get every test to pass before coding runner below #
-#####################################################
-
 def runner
   welcome
   card_total = initial_round
